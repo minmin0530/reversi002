@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>reversi</title>
+    </head>
+    <canvas id="gamefield" width="800" height="800"></canvas>
+    <script>
+
+        window.onload = function() {
+            const canvas = document.getElementById("gamefield");
+            const ctx = canvas.getContext("2d");
+            ctx.fillStyle = "rgb(0,128,0)";//深緑：オセロ盤の色
+            ctx.fillRect(0,0, 800, 800);
+
+            //マウスをクリックしたら、コマを置く
+            window.addEventListener("mousedown", function(event){
+
+                ctx.fillStyle = "rgb(255,0,0)";//赤：コマの色
+                ctx.beginPath();
+                ctx.arc(event.clientX, event.clientY, 20, 0, Math.PI * 2, true);
+                ctx.fill();
+
+            }, false);
+
+        };
+    </script>
+</html>
